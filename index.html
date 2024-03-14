@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full w-full">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="keywords" content="HTMX N0dzCrypt Thymeleaf">
+<meta name="description" content="This app has been generated with N0dzCrypt, and the developpers didn't bowser changing the meta tags lol.">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="style/output.css">
+<link rel="stylesheet" href="style/bg-image.css">
+<link rel="stylesheet" href="style/animations.css">
+    <title>N0dzCrypt</title>
+</head>
+<body id="root" class="flex flex-col w-full h-screen">
+    <div class="fixed h-[8%] z-10 w-full top-0 left-0">
+        <nav class="flex justify-between h-full px-2 items-center bg-primary text-white w-full">
+    <div class="flex gap-2 items-center">
+        <img class="rounded-full" width="50" src="img/logo_nav.webp">
+        <span class="flex text-3xl font-poppins font-bold">
+            <span class="text-primary bg-accent py-1 pl-2 rounded-l-lg">DIGI</span>
+            <span class="text-accent bg-darkPrimary py-1 pr-2 rounded-r-lg italic">CAP</span> 
+        </span>
+        <span class="px-10">La CVthèque de vos futurs alternants</span>
+    </div>
+    <ul class="flex h-full items-center gap-10">
+        <ul class="flex px-2 hover:text-accent hover:cursor-pointer items-center h-full">
+            <li>Poster une offre</li>
+        </ul>
+        <li tabindex="0" class="border-2 hover:cursor-pointer hover:brightness-150 bg-primary p-2 rounded-md border-lightPrimary"><a 
+                href="connexion.html"
+                hx-target="#root"
+                hx-push-url="/connexion"
+                >Connexion</a></li>
+    </ul>
+</nav>
+
+    </div>
+    <main id="router-outlet" class="absolute top-[8%] w-full h-[92%] bg-grey ">
+        <section class="flex flex-col gap-5 justify-center items-center bg-main text-white h-[400px]">
+    <h1 class="text-white text-5xl font-extrabold font-poppins">Trouvez votre <span class="text-accent"> alternant</span></h1>
+    <div class="flex flex-col gap-1 bg-primary p-5 rounded-lg">
+        Rechercher
+        <div class="flex">
+            <input class="rounded-l-md border-r-2 border-grey text-xl p-2 text-black" placeholder="Domaine, ex : java, .NET">
+            <input class="rounded-r-md text-xl p-2 text-black" placeholder="Lieu, ex : Nantes">
+            <div class="pl-5 flex items-center">
+                <div tabindex="0" class="rounded-full hover:bg-opacity-10 hover:bg-white hover:cursor-pointer border-2 border-white p-1 rotate-[270deg]"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></div>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="flex w-full justify-center bg-grey">
+    <div class="w-2/3 p-5 flex flex-wrap">
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=0"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
+                        <img class="rounded-full" height="125" width="125" src="img/jean.jpeg" alt="jean.jpeg">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Jean</div>
+                        <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;applications Java / Angular</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Java</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Angular</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Spring</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Spring boot</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">CSS / SCSS</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=1"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 4</div>
+                        <img class="rounded-full" height="125" width="125" src="img/Vincent.png" alt="Vincent.png">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Vincent</div>
+                        <div class="text-primary text-center font-bold text-xl">Data Analyst</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Javascript</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">React</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Node</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Express</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Bootstrap</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=2"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 6</div>
+                        <img class="rounded-full" height="125" width="125" src="img/arnold.jpeg" alt="arnold.jpeg">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Arnold</div>
+                        <div class="text-primary text-center font-bold text-xl">Développeur HTML Fullstack</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Rust</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Golang</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Leptos</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Templ</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Tailwind</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Ocaml</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=3"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
+                        <img class="rounded-full" height="125" width="125" src="img/arthur.jpeg" alt="arthur.jpeg">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Arthur</div>
+                        <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;application Next.js / React</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Haskell</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Rust</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Archlinux</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">C</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Zig</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Elixir</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=4"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
+                        <img class="rounded-full" height="125" width="125" src="img/lucas.jpeg" alt="lucas.jpeg">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Lucas</div>
+                        <div class="text-primary text-center font-bold text-xl">Buisness Analyste</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Javascript</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Node</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">React</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Tailwind</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Bootstrap</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">PHP</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Cobol</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=5"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
+                        <img class="rounded-full" height="125" width="125" src="img/julie.jpeg" alt="julie.jpeg">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Julie</div>
+                        <div class="text-primary text-center font-bold text-xl">Concepteur développeur Mainframe</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Delphi</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Cobol</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Haskell</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=6"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
+                        <img class="rounded-full" height="125" width="125" src="img/camcam.jpeg" alt="camcam.jpeg">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Cam</div>
+                        <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;applications Ruby / JQuery</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Delphi</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Cobol</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Haskell</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=7"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
+                        <img class="rounded-full" height="125" width="125" src="img/luffy.jpeg" alt="luffy.jpeg">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Luffy</div>
+                        <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;applications Java / Angular</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Pentest</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Burpsuite</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Forensics</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Security</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+
+            <div class="p-2 px-8 w-1/3">
+                <a 
+                    tabindex="0"
+                    hx-trigger="keyup[keyCode==13], click"
+                    href="details.html"
+                    hx-push-url="/ase-details.html?id=8"
+                    hx-target="#router-outlet"
+                    class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
+                    >
+                    <div class="flex self-end justify-self-end"><div class=""><svg fill="#0067a3" xmlns="http://www.w3.org/2000/svg" height="22" viewBox="0 -960 960 960" width="22"><path d="m480-120-58-52q-101-91-167-157T150-447.5Q111-500 95.5-544T80-634q0-94 63-157t157-63q52 0 99 22t81 62q34-40 81-62t99-22q94 0 157 63t63 157q0 46-15.5 90T810-447.5Q771-395 705-329T538-172l-58 52Zm0-108q96-86 158-147.5t98-107q36-45.5 50-81t14-70.5q0-60-40-100t-100-40q-47 0-87 26.5T518-680h-76q-15-41-55-67.5T300-774q-60 0-100 40t-40 100q0 35 14 70.5t50 81q36 45.5 98 107T480-228Zm0-273Z"/></svg></div></div>
+                    <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
+                        <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
+                        <img class="rounded-full" height="125" width="125" src="img/guts.jpeg" alt="guts.jpeg">
+                        <div class="font-poppins text-darkAccent font-bold text-center">Guts</div>
+                        <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;applications Java / Angular</div>
+                        <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
+                        <div class="flex flex-col gap-1">
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#003452" alt="email" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960"  width="15"><path d="M160-80q-17 0-28.5-11.5T120-120v-200q0-33 23.5-56.5T200-400v-160q0-33 23.5-56.5T280-640h160v-58q-18-12-29-29t-11-41q0-15 6-29.5t18-26.5l56-56 56 56q12 12 18 26.5t6 29.5q0 24-11 41t-29 29v58h160q33 0 56.5 23.5T760-560v160q33 0 56.5 23.5T840-320v200q0 17-11.5 28.5T800-80H160Zm120-320h400v-160H280v160Zm-80 240h560v-160H200v160Zm80-240h400-400Zm-80 240h560-560Zm560-240H200h560Z"/></svg> - 30 ans</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#d90214" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="M480-480q33 0 56.5-23.5T560-560q0-33-23.5-56.5T480-640q-33 0-56.5 23.5T400-560q0 33 23.5 56.5T480-480Zm0 294q122-112 181-203.5T720-552q0-109-69.5-178.5T480-800q-101 0-170.5 69.5T240-552q0 71 59 162.5T480-186Zm0 106Q319-217 239.5-334.5T160-552q0-150 96.5-239T480-880q127 0 223.5 89T800-552q0 100-79.5 217.5T480-80Zm0-480Z"/></svg>Nantes</div>
+                            <div class="text-xs text-primary flex items-center gap-1"><svg fill="#088a01" xmlns="http://www.w3.org/2000/svg" height="15" viewBox="0 -960 960 960" width="15"><path d="m612-292 56-56-148-148v-184h-80v216l172 172ZM480-80q-83 0-156-31.5T197-197q-54-54-85.5-127T80-480q0-83 31.5-156T197-763q54-54 127-85.5T480-880q83 0 156 31.5T763-763q54 54 85.5 127T880-480q0 83-31.5 156T763-197q-54 54-127 85.5T480-80Zm0-400Zm0 320q133 0 226.5-93.5T800-480q0-133-93.5-226.5T480-800q-133 0-226.5 93.5T160-480q0 133 93.5 226.5T480-160Z"/></svg> dispo dès maintenant</div>
+                        </div>
+                    </div>
+                    <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
+                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Pentest</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Burpsuite</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Forensics</div>
+                            
+                                <div class="rounded-full text-xs bg-blue-200 p-2">Security</div>
+                            
+                        </div>
+                    </div>
+                </a>
+            </div>
+        
+    </div>
+</div>
+
+    </main>
+</body>
+</html>
+
+

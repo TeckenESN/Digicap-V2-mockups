@@ -1,0 +1,133 @@
+@keyframes fadeIn {
+  0% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+.fade-in{
+    animation: fadeIn 2s;
+}
+
+@keyframes rotateMenuButton {
+    from {
+        transform: none;
+    }
+    to {
+        transform: rotateZ(180deg);
+    }
+}
+@keyframes up {
+    from {
+    }
+    to {
+        transform: translateY(-5px);
+        scale: 102%;
+    }
+}
+
+@keyframes carousel-left {
+    from {
+
+    }
+    to {
+        transform: translateX(-100%);
+    }
+}
+@keyframes decarousel-left {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0%);
+    }
+}
+
+@keyframes shrink {
+    from {
+    }
+    to {
+        scale: 100%;
+    }
+}
+@keyframes grow {
+    from {
+    }
+    to {
+        scale: 150%;
+    }
+}
+
+@keyframes rotateBackward {
+    from {
+        transform: rotateZ(180deg);
+    }
+    to {
+        transform: none;
+    }
+}
+
+
+.wrapper {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.5s ease-out;
+}
+
+.hovergrow:hover {
+    animation-name: grow;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+}
+
+.hovergrow {
+    animation-name: shrink;
+    animation-duration: 0.2s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+}
+
+.hoverzoom:hover {
+    animation-name: up;
+    animation-duration: 0.5s;
+    animation-fill-mode: both;
+    animation-timing-function: ease;
+}
+
+.translate100 {
+    transform: translateX(100%);
+}
+
+.decarouseled {
+    animation-name: decarousel-left;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+.carouseled {
+    animation-name: carousel-left;
+    animation-duration: 0.5s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.sub-menu {
+    overflow: hidden;
+}
+
+.display-menu {
+    grid-template-rows: 1fr;
+}
+
+.rotatingButton {
+    animation-name: rotateMenuButton;
+    animation-duration: 0.75s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease;
+}
+
+.reverseRotationButton {
+    animation-name: rotateBackward;
+    animation-duration: 0.75s;
+    animation-fill-mode: backwards;
+    animation-timing-function: ease;
+}
