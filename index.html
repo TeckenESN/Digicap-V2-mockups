@@ -18,53 +18,63 @@
     <title>N0dzCrypt</title>
 </head>
 <body id="root" class="flex flex-col w-full h-screen">
-    <div class="fixed h-[8%] z-10 w-full top-0 left-0">
-        <nav class="flex justify-between h-full px-2 items-center bg-primary text-white w-full">
+    <div class="fixed h-[8%] z-50 w-full top-0 left-0">
+        <nav class="flex z-50 justify-between h-full px-2 items-center bg-primary text-white w-full">
     <div class="flex gap-2 items-center">
-        <img class="rounded-full" width="50" src="img/logo_nav.webp">
+        <img class="rounded-full" width="50" src="/img/logo_nav.webp">
         <span class="flex text-3xl font-poppins font-bold">
             <span class="text-primary bg-accent py-1 pl-2 rounded-l-lg">DIGI</span>
             <span class="text-accent bg-darkPrimary py-1 pr-2 rounded-r-lg italic">CAP</span> 
         </span>
-        <span class="px-10">La CVthèque de vos futurs alternants</span>
+        <span class="px-10 hidden md:block">La CVthèque de vos futurs alternants</span>
     </div>
-    <ul class="flex h-full items-center gap-10">
+    <ul class="hidden md:flex h-full items-center gap-10">
         <ul class="flex px-2 hover:text-accent hover:cursor-pointer items-center h-full">
             <li>Poster une offre</li>
         </ul>
         <li tabindex="0" class="border-2 hover:cursor-pointer hover:brightness-150 bg-primary p-2 rounded-md border-lightPrimary"><a 
-                href="connexion.html"
+                href="/connexion"
+                hx-get="/connexion/partial"
                 hx-target="#root"
                 hx-push-url="/connexion"
                 >Connexion</a></li>
     </ul>
+    <div class="flex md:hidden w-[50px] flex-col gap-2">
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+    </div>
 </nav>
 
     </div>
     <main id="router-outlet" class="absolute top-[8%] w-full h-[92%] bg-grey ">
-        <section class="flex flex-col gap-5 justify-center items-center bg-main text-white h-[400px]">
-    <h1 class="text-white text-5xl font-extrabold font-poppins">Trouvez votre <span class="text-accent"> alternant</span></h1>
-    <div class="flex flex-col gap-1 bg-primary p-5 rounded-lg">
+        <section class="flex flex-col gap-5 justify-center items-center bg-main text-white md:h-[400px] h-[600px]">
+    <h1 class="text-white text-center text-5xl font-extrabold font-poppins">Trouvez votre <span class="text-accent"> alternant</span></h1>
+    <div class="flex flex-col gap-1 bg-primary w-[90%] md:w-fit p-5 rounded-lg">
         Rechercher
-        <div class="flex">
-            <input class="rounded-l-md border-r-2 border-grey text-xl p-2 text-black" placeholder="Domaine, ex : java, .NET">
-            <input class="rounded-r-md text-xl p-2 text-black" placeholder="Lieu, ex : Nantes">
-            <div class="pl-5 flex items-center">
-                <div tabindex="0" class="rounded-full hover:bg-opacity-10 hover:bg-white hover:cursor-pointer border-2 border-white p-1 rotate-[270deg]"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></div>
+        <div class="flex flex-col md:flex-row gap-2 md:gap-0">
+            <input class="rounded-md md:rounded-l-md md:rounded-r-none border-r-2 border-grey md:text-xl p-2 text-black" placeholder="Domaine, ex : java, .NET">
+            <input class="rounded-md md:rounded-r-md md:rounded-l-none md:text-xl p-2 text-black" placeholder="Lieu, ex : Nantes">
+            <div class="md:pl-5 flex items-center w-full">
+                <div tabindex="0" class="rounded-full hidden md:block hover:bg-opacity-10 hover:bg-white hover:cursor-pointer border-2 border-white p-1 rotate-[270deg]"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></div>
+                <div class="flex w-full md:hidden">
+                    <div class="flex text-sm bg-accent w-full text-primary rounded-md p-2 px-5 justify-center items-center font-bold"><button>Rechercher</button></div>
+                </div>
             </div>
         </div>
     </div>
 </section>
 <div class="flex w-full justify-center bg-grey">
-    <div class="w-2/3 p-5 flex flex-wrap">
+    <div class="xl:w-2/3 lg:w-3/4 md:w-4/5 w-full p-5 flex flex-wrap">
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=0"
+                    hx-get="/ase-details/partial?id=0"
+                    hx-push-url="/ase-details?id=0"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -72,7 +82,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
                         <img class="rounded-full" height="125" width="125" src="img/jean.jpeg" alt="jean.jpeg">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Jean</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Jean</div>
                         <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;applications Java / Angular</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -82,7 +92,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Java</div>
                             
@@ -100,12 +110,12 @@
             </div>
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=1"
+                    hx-get="/ase-details/partial?id=1"
+                    hx-push-url="/ase-details?id=1"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -113,7 +123,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 4</div>
                         <img class="rounded-full" height="125" width="125" src="img/Vincent.png" alt="Vincent.png">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Vincent</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Vincent</div>
                         <div class="text-primary text-center font-bold text-xl">Data Analyst</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -123,7 +133,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Javascript</div>
                             
@@ -141,12 +151,12 @@
             </div>
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=2"
+                    hx-get="/ase-details/partial?id=2"
+                    hx-push-url="/ase-details?id=2"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -154,7 +164,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 6</div>
                         <img class="rounded-full" height="125" width="125" src="img/arnold.jpeg" alt="arnold.jpeg">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Arnold</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Arnold</div>
                         <div class="text-primary text-center font-bold text-xl">Développeur HTML Fullstack</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -164,7 +174,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Rust</div>
                             
@@ -184,12 +194,12 @@
             </div>
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=3"
+                    hx-get="/ase-details/partial?id=3"
+                    hx-push-url="/ase-details?id=3"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -197,7 +207,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
                         <img class="rounded-full" height="125" width="125" src="img/arthur.jpeg" alt="arthur.jpeg">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Arthur</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Arthur</div>
                         <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;application Next.js / React</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -207,7 +217,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Haskell</div>
                             
@@ -227,12 +237,12 @@
             </div>
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=4"
+                    hx-get="/ase-details/partial?id=4"
+                    hx-push-url="/ase-details?id=4"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -240,7 +250,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
                         <img class="rounded-full" height="125" width="125" src="img/lucas.jpeg" alt="lucas.jpeg">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Lucas</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Lucas</div>
                         <div class="text-primary text-center font-bold text-xl">Buisness Analyste</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -250,7 +260,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Javascript</div>
                             
@@ -272,12 +282,12 @@
             </div>
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=5"
+                    hx-get="/ase-details/partial?id=5"
+                    hx-push-url="/ase-details?id=5"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -285,7 +295,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
                         <img class="rounded-full" height="125" width="125" src="img/julie.jpeg" alt="julie.jpeg">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Julie</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Julie</div>
                         <div class="text-primary text-center font-bold text-xl">Concepteur développeur Mainframe</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -295,7 +305,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Delphi</div>
                             
@@ -309,12 +319,12 @@
             </div>
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=6"
+                    hx-get="/ase-details/partial?id=6"
+                    hx-push-url="/ase-details?id=6"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -322,7 +332,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
                         <img class="rounded-full" height="125" width="125" src="img/camcam.jpeg" alt="camcam.jpeg">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Cam</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Cam</div>
                         <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;applications Ruby / JQuery</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -332,7 +342,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Delphi</div>
                             
@@ -346,12 +356,12 @@
             </div>
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=7"
+                    hx-get="/ase-details/partial?id=7"
+                    hx-push-url="/ase-details?id=7"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -359,7 +369,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
                         <img class="rounded-full" height="125" width="125" src="img/luffy.jpeg" alt="luffy.jpeg">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Luffy</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Luffy</div>
                         <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;applications Java / Angular</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -369,7 +379,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Pentest</div>
                             
@@ -385,12 +395,12 @@
             </div>
         
 
-            <div class="p-2 px-8 w-1/3">
+            <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="details.html"
-                    hx-push-url="/ase-details.html?id=8"
+                    hx-get="/ase-details/partial?id=8"
+                    hx-push-url="/ase-details?id=8"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
                     >
@@ -398,7 +408,7 @@
                     <div class="gap-2 -translate-y-9 flex flex-col justify-center items-center rounded-full">
                         <div class="flex text-primary justify-center w-full p-2">CDA RNCP niveau 5</div>
                         <img class="rounded-full" height="125" width="125" src="img/guts.jpeg" alt="guts.jpeg">
-                        <div class="font-poppins text-darkAccent font-bold text-center">Guts</div>
+                        <div class="font-poppins text-xl text-darkAccent font-bold text-center">Guts</div>
                         <div class="text-primary text-center font-bold text-xl">Concepteur développeur d&#39;applications Java / Angular</div>
                         <div class="text-error text-sm flex items-center font-bold gap-1">Éligible à la prime de 6000 euros</div>
                         <div class="flex flex-col gap-1">
@@ -408,7 +418,7 @@
                         </div>
                     </div>
                     <div class="flex gap-5 flex-wrap px-10 items-center grow pt-5 overflow-hidden justify-center">
-                        <div class="flex gap-5 w-full justify-center flex-wrap">
+                        <div class="flex gap-1 md:gap-3 lg:gap-5 w-full justify-center flex-wrap">
                             
                                 <div class="rounded-full text-xs bg-blue-200 p-2">Pentest</div>
                             
