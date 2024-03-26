@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full w-full">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="keywords" content="HTMX N0dzCrypt Thymeleaf">
+<meta name="description" content="This app has been generated with N0dzCrypt, and the developpers didn't bowser changing the meta tags lol.">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="style/output.css">
+<link rel="stylesheet" href="style/bg-image.css">
+<link rel="stylesheet" href="style/animations.css">
+    <title>N0dzCrypt</title>
+</head>
+<body id="root" class="flex flex-col w-full h-screen">
+    <div class="fixed h-[8%] min-h-[70px] z-50 w-full top-0 left-0">
+        <nav class="flex z-50 justify-between h-full px-2 items-center bg-primary text-white w-full">
+    <div 
+        class="flex hover:cursor-pointer gap-2 items-center"
+        hx-get="./home.html/partial"
+        hx-push-url="./home.html"
+        href="./home.html"
+        hx-swap="innerHTML transition:true"
+        hx-target="#router-outlet"
+        >
+        <img 
+            class="rounded-full"
+            width="50"
+            src="./img/logo_nav.webp"
+        >
+        <span class="flex text-3xl font-poppins font-bold">
+            <span class="text-primary bg-accent py-1 pl-2 rounded-l-lg">DIGI</span>
+            <span class="text-accent bg-darkPrimary py-1 pr-2 rounded-r-lg italic">CAP</span> 
+        </span>
+        <span class="px-10 hidden md:block">La CVthèque de vos futurs alternants</span>
+    </div>
+    <ul class="hidden md:flex h-full items-center gap-10">
+        <ul class="flex px-2 gap-10 hover:cursor-pointer items-center h-full">
+            <li>
+                <a
+                    class="hover:text-accent "
+                    href="./profil.html"
+                    hx-get="./profil.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="./profil.html"
+                    >
+                    Mon espace
+                </a> 
+            </li>
+            <li>
+                <a
+                    class="hover:text-accent "
+                    href="./offre-emploi.html"
+                    hx-get="./offre-emploi.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="./offre-emploi.html"
+                    >
+                    Poster une offre
+                </a> 
+            </li>
+        </ul>
+        <li tabindex="0" class="border-2 hover:cursor-pointer hover:brightness-150 bg-primary p-2 rounded-md border-lightPrimary"><a 
+                href="./connexion.html"
+                hx-get="./connexion.html/partial"
+                hx-target="#root"
+                hx-push-url="./connexion.html"
+                >Connexion</a></li>
+    </ul>
+    <div id="hamb" class="flex md:hidden w-[50px] flex-col gap-2">
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+    </div>
+</nav>
+
+    </div>
+    <div hidden id="modal-bg" class="absolute top-0 left-0 z-40 h-full bg-accent w-full bg-opacity-25"></div>
+<aside style="z-index: 100;" hidden id="modal-right" class="absolute top-0 bg-grey text-primary h-screen p-3 rounded-md w-full right-[-800px] sm:w-[800px]">
+    <div class="flex justify-end w-full">
+        <div onclick="closeModal()"><svg fill="#003452" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>
+    </div>
+    <section class="flex flex-col gap-2">
+        <ul class="flex justify-center gap-5 flex-col w-full">
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="./home.html/partial"
+                    hx-push-url="./home.html"
+                    href="./home.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#router-outlet"
+                    hx-on::after-request="closeModal()"
+                    >Accueil</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    href="./profil.html"
+                    hx-get="./profil.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="./profil.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-on::after-request="closeModal()"
+                    >Mon espace</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="./offre-emploi.html/partial"
+                    hx-push-url="./offre-emploi.html"
+                    href="./offre-emploi.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#router-outlet"
+                    hx-on::after-request="closeModal()"
+                    >Poster une offre</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="./connexion.html"
+                    hx-push-url="./connexion.html"
+                    href="./connexion.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#root"
+                    hx-on::after-request="closeModal()"
+                    >Connexion</a>
+            </li>
+        </ul>
+    </section>
+</aside>
+<script defer src="./script/nav.js"></script>
+
+    <main id="router-outlet" class="absolute top-[8%] w-full h-[92%] bg-grey ">
+        <section class="h-hover:bg-lightAccent h-full w-full bg-jobboard">
+    <h1 class="text-5xl text-accent lg:text-primary p-5 z-10 text-center font-poppins">Poster une offre d'emploi</h1>
+    <div class="flex z-10 justify-center">
+        <form hx-post="test" id="femploi" class="flex flex-col text-white gap-2.5 w-[90%] md:w-2/3 lg:w-1/2 rounded-lg bg-primary p-5">
+            <div class="bg-grey border-2 border-lightPrimary max-h-1/2 overflow-auto text-primary p-5">
+                <span class="font-bold"> Vous pouvez ici déposer une offre d'emploi, qui sera visible par tous les ASE de Diginamic</span>. Seul l'intitulé du poste et la localisation sont obligatoires, mais il est conseillé de renseigner les autres champs et / ou de téléverser des ressources suppélementaires au format pdf ou docx.
+            </div>
+            <div class="underline hover:cursor-pointer">Téléverser un document</div>
+            <div class="flex flex-col gap-1">
+                <label for="poste">Intitulé du poste *</label>
+                <input 
+    id="poste"
+    type="text"
+    value=""
+    placeholder="ex : Java"
+    aria-placeholder="ex : Java"
+    class="rounded-md w-full p-2 text-black"
+>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="localisation">Localisation de l'offre * </label>
+                <input minlength="2" autocomplete="off" class="rounded-md w-full p-2 text-black" list="localisations" name="module" id="localisation">
+                <datalist style="overflow:hidden" id="localisations">
+                        <option value="Nantes"></option>
+                        <option value="Lyon"></option>
+                        <option value="Montpellier"></option>
+                        <option value="Lille"></option>
+                </datalist>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="modalites">Modalités du poste</label>
+                <select id="modalites" class="rounded-md w-full p-2 text-black">
+                    <option value="Full remote">Full remote</option>
+                    <option value="Hybride">Hybride</option>
+                    <option value="Sur site">Sur site</option>
+                </select>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="competence">Compétences recherchées</label>
+                <div class="flex w-full gap-2">
+                    <input minlength="2" autocomplete="off" class="rounded-md w-full p-2 text-black" list="competences" name="module" id="competence">
+                    <button type="button" id="btn-ajout-localisation" class="flex text-sm bg-accent text-primary rounded-md p-2 px-5 justify-center items-center font-bold">Ajouter</button>
+                </div>
+                <datalist style="overflow:hidden" id="competences">
+                    
+                        <option data-value="1" value="java"></option>
+                    
+                        <option data-value="2" value="dotnet"></option>
+                    
+                        <option data-value="3" value="javascript"></option>
+                    
+                        <option data-value="4" value="trello"></option>
+                    
+                        <option data-value="5" value="cobol"></option>
+                    
+                </datalist>
+                <div id="competences-ui" class="flex p-2.5 flex-wrap gap-2">
+                </div>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="soft">Soft skills attendus</label>
+                <div class="flex w-full gap-2">
+                    <input minlength="2" autocomplete="off" class="rounded-md w-full p-2 text-black" list="softs" name="module" id="soft">
+                    <button type="button" id="btn-ajout-soft" class="flex text-sm bg-accent text-primary rounded-md p-2 px-5 justify-center items-center font-bold">Ajouter</button>
+                </div>
+                <datalist style="overflow:hidden" id="softs">
+                        <option value="Ponctualité"></option>
+                        <option value="Curiosité"></option>
+                        <option value="Sociabilité"></option>
+                        <option value="Autonomie"></option>
+                </datalist>
+                <div id="softs-ui" class="flex p-2.5 flex-wrap gap-2">
+                </div>
+            </div>
+            <div class="flex flex-col gap-1">
+                <label for="description">Informations complémentaires</label>
+                <textarea class="rounded-md w-full p-2 text-black"></textarea>
+            </div>
+            <button type="button" class="flex w bg-accent w-full text-primary rounded-md p-2 px-5 justify-center items-center font-bold">Poster</button>
+        </form>
+    </div>
+    <script src="./script/offre-emploi.js" type="module"></script>
+</section>
+
+    </main>
+</body>
+</html>

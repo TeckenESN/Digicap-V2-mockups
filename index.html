@@ -20,8 +20,19 @@
 <body id="root" class="flex flex-col w-full h-screen">
     <div class="fixed h-[8%] min-h-[70px] z-50 w-full top-0 left-0">
         <nav class="flex z-50 justify-between h-full px-2 items-center bg-primary text-white w-full">
-    <div class="flex gap-2 items-center">
-        <img class="rounded-full" width="50" src="./img/logo_nav.webp">
+    <div 
+        class="flex hover:cursor-pointer gap-2 items-center"
+        hx-get="/home.html/partial"
+        hx-push-url="/home.html"
+        href="/home.html"
+        hx-swap="innerHTML transition:true"
+        hx-target="#router-outlet"
+        >
+        <img 
+            class="rounded-full"
+            width="50"
+            src="./img/logo_nav.webp"
+        >
         <span class="flex text-3xl font-poppins font-bold">
             <span class="text-primary bg-accent py-1 pl-2 rounded-l-lg">DIGI</span>
             <span class="text-accent bg-darkPrimary py-1 pr-2 rounded-r-lg italic">CAP</span> 
@@ -29,17 +40,38 @@
         <span class="px-10 hidden md:block">La CVthèque de vos futurs alternants</span>
     </div>
     <ul class="hidden md:flex h-full items-center gap-10">
-        <ul class="flex px-2 hover:text-accent hover:cursor-pointer items-center h-full">
-            <li>Poster une offre</li>
+        <ul class="flex px-2 gap-10 hover:cursor-pointer items-center h-full">
+            <li>
+                <a
+                    class="hover:text-accent "
+                    href="./profil.html"
+                    hx-get="./profil.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="./profil.html"
+                    >
+                    Mon espace
+                </a> 
+            </li>
+            <li>
+                <a
+                    class="hover:text-accent "
+                    href="./offre-emploi.html"
+                    hx-get="./offre-emploi.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="./offre-emploi.html"
+                    >
+                    Poster une offre
+                </a> 
+            </li>
         </ul>
         <li tabindex="0" class="border-2 hover:cursor-pointer hover:brightness-150 bg-primary p-2 rounded-md border-lightPrimary"><a 
-                href="/connexion"
-                hx-get="/connexion/partial"
+                href="./connexion.html"
+                hx-get="./connexion.html/partial"
                 hx-target="#root"
-                hx-push-url="./connexion"
+                hx-push-url="./connexion.html"
                 >Connexion</a></li>
     </ul>
-    <div class="flex md:hidden w-[50px] flex-col gap-2">
+    <div id="hamb" class="flex md:hidden w-[50px] flex-col gap-2">
         <div class="bg-white h-1 w-full"></div>
         <div class="bg-white h-1 w-full"></div>
         <div class="bg-white h-1 w-full"></div>
@@ -48,6 +80,62 @@
 </nav>
 
     </div>
+    <div hidden id="modal-bg" class="absolute top-0 left-0 z-40 h-full bg-accent w-full bg-opacity-25"></div>
+<aside style="z-index: 100;" hidden id="modal-right" class="absolute top-0 bg-grey text-primary h-screen p-3 rounded-md w-full right-[-800px] sm:w-[800px]">
+    <div class="flex justify-end w-full">
+        <div onclick="closeModal()"><svg fill="#003452" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>
+    </div>
+    <section class="flex flex-col gap-2">
+        <ul class="flex justify-center gap-5 flex-col w-full">
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="/home.html/partial"
+                    hx-push-url="/home.html"
+                    href="/home.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#router-outlet"
+                    hx-on::after-request="closeModal()"
+                    >Accueil</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    href="./profil.html"
+                    hx-get="./profil.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="./profil.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-on::after-request="closeModal()"
+                    >Mon espace</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="./offre-emploi.html/partial"
+                    hx-push-url="./offre-emploi.html"
+                    href="./offre-emploi.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#router-outlet"
+                    hx-on::after-request="closeModal()"
+                    >Poster une offre</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="./connexion.html"
+                    hx-push-url="./connexion.html"
+                    href="./connexion.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#root"
+                    hx-on::after-request="closeModal()"
+                    >Connexion</a>
+            </li>
+        </ul>
+    </section>
+</aside>
+<script defer src="./script/nav.js"></script>
+
     <main id="router-outlet" class="absolute top-[8%] w-full h-[92%] bg-grey ">
         <section class="flex flex-col gap-5 justify-center items-center bg-main text-white md:h-[400px] h-[600px]">
     <h1 class="text-white text-center text-5xl font-extrabold font-poppins">Trouvez votre <span class="text-accent"> alternant</span></h1>
@@ -59,21 +147,21 @@
             <div class="md:pl-5 flex items-center w-full">
                 <div tabindex="0" class="rounded-full hidden md:block hover:bg-opacity-10 hover:bg-white hover:cursor-pointer border-2 border-white p-1 rotate-[270deg]"><svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="25" viewBox="0 -960 960 960" width="25"><path d="M480-345 240-585l56-56 184 184 184-184 56 56-240 240Z"/></svg></div>
                 <div class="flex w-full md:hidden">
-                    <div class="flex text-sm bg-accent w-full text-primary rounded-md p-2 px-5 justify-center items-center font-bold"><button>Rechercher</button></div>
+                    <div class="flex w text-sm bg-accent w-full text-primary rounded-md p-2 px-5 justify-center items-center font-bold"><button>Rechercher</button></div>
                 </div>
             </div>
         </div>
     </div>
 </section>
 <div class="flex w-full justify-center bg-grey">
-    <div class="xl:w-2/3 lg:w-3/4 md:w-4/5 w-full p-5 flex flex-wrap">
+    <div class="xl:w-2/3 lg:w-3/4 md:w-4/5 w-full p-1 md:p-5 flex flex-wrap">
         
 
             <div class="p-2 px-8 xl:w-1/3 md:w-1/2 w-full">
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=0"
                     hx-push-url="/ase-details?id=0"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -114,7 +202,7 @@
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=1"
                     hx-push-url="/ase-details?id=1"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -155,7 +243,7 @@
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=2"
                     hx-push-url="/ase-details?id=2"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -198,7 +286,7 @@
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=3"
                     hx-push-url="/ase-details?id=3"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -241,7 +329,7 @@
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=4"
                     hx-push-url="/ase-details?id=4"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -286,7 +374,7 @@
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=5"
                     hx-push-url="/ase-details?id=5"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -323,7 +411,7 @@
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=6"
                     hx-push-url="/ase-details?id=6"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -360,7 +448,7 @@
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=7"
                     hx-push-url="/ase-details?id=7"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -399,7 +487,7 @@
                 <a 
                     tabindex="0"
                     hx-trigger="keyup[keyCode==13], click"
-                    href="./details.html"
+                    hx-get="/ase-details/partial?id=8"
                     hx-push-url="/ase-details?id=8"
                     hx-target="#router-outlet"
                     class="flex hover:cursor-pointer hoverzoom rounded-md p-2 bg-white h-[550px] justify-between gap-2 shadow-lg flex-col items-center"
@@ -439,5 +527,3 @@
     </main>
 </body>
 </html>
-
-

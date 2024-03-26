@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="fr" class="h-full w-full">
+<head>
+    <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<meta name="keywords" content="HTMX N0dzCrypt Thymeleaf">
+<meta name="description" content="This app has been generated with N0dzCrypt, and the developpers didn't bowser changing the meta tags lol.">
+<link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+<link rel="stylesheet" href="style/output.css">
+<link rel="stylesheet" href="style/bg-image.css">
+<link rel="stylesheet" href="style/animations.css">
+    <title>N0dzCrypt</title>
+</head>
+<body id="root" class="flex flex-col w-full h-screen">
+    <div class="fixed h-[8%] min-h-[70px] z-50 w-full top-0 left-0">
+        <nav class="flex z-50 justify-between h-full px-2 items-center bg-primary text-white w-full">
+    <div 
+        class="flex hover:cursor-pointer gap-2 items-center"
+        hx-get="./home.html/partial"
+        hx-push-url="./home.html"
+        href="./home.html"
+        hx-swap="innerHTML transition:true"
+        hx-target="#router-outlet"
+        >
+        <img 
+            class="rounded-full"
+            width="50"
+            src="./img/logo_nav.webp"
+        >
+        <span class="flex text-3xl font-poppins font-bold">
+            <span class="text-primary bg-accent py-1 pl-2 rounded-l-lg">DIGI</span>
+            <span class="text-accent bg-darkPrimary py-1 pr-2 rounded-r-lg italic">CAP</span> 
+        </span>
+        <span class="px-10 hidden md:block">La CVthèque de vos futurs alternants</span>
+    </div>
+    <ul class="hidden md:flex h-full items-center gap-10">
+        <ul class="flex px-2 gap-10 hover:cursor-pointer items-center h-full">
+            <li>
+                <a
+                    class="hover:text-accent "
+                    href="./profil.html"
+                    hx-get="/profil.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="/profil.html"
+                    >
+                    Mon espace
+                </a> 
+            </li>
+            <li>
+                <a
+                    class="hover:text-accent "
+                    href="./offre-emploi.html"
+                    hx-get="/offre-emploi.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="/offre-emploi.html"
+                    >
+                    Poster une offre
+                </a> 
+            </li>
+        </ul>
+        <li tabindex="0" class="border-2 hover:cursor-pointer hover:brightness-150 bg-primary p-2 rounded-md border-lightPrimary"><a 
+                href="./connexion.html"
+                hx-get="/connexion.html/partial"
+                hx-target="#root"
+                hx-push-url="/connexion.html"
+                >Connexion</a></li>
+    </ul>
+    <div id="hamb" class="flex md:hidden w-[50px] flex-col gap-2">
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+        <div class="bg-white h-1 w-full"></div>
+    </div>
+</nav>
+
+    </div>
+    <div hidden id="modal-bg" class="absolute top-0 left-0 z-40 h-full bg-accent w-full bg-opacity-25"></div>
+<aside style="z-index: 100;" hidden id="modal-right" class="absolute top-0 bg-grey text-primary h-screen p-3 rounded-md w-full right-[-800px] sm:w-[800px]">
+    <div class="flex justify-end w-full">
+        <div onclick="closeModal()"><svg fill="#003452" xmlns="http://www.w3.org/2000/svg" height="20" viewBox="0 -960 960 960" width="20"><path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/></svg></div>
+    </div>
+    <section class="flex flex-col gap-2">
+        <ul class="flex justify-center gap-5 flex-col w-full">
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="./home.html/partial"
+                    hx-push-url="./home.html"
+                    href="./home.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#router-outlet"
+                    hx-on::after-request="closeModal()"
+                    >Accueil</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    href="/profil.html"
+                    hx-get="/profil.html/partial"
+                    hx-target="#router-outlet"
+                    hx-push-url="/profil.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-on::after-request="closeModal()"
+                    >Mon espace</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="/offre-emploi.html/partial"
+                    hx-push-url="/offre-emploi.html"
+                    href="/offre-emploi.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#router-outlet"
+                    hx-on::after-request="closeModal()"
+                    >Poster une offre</a>
+            </li>
+            <li class="flex p-3 w-full justify-center rounded-md hover:bg-white">
+                <a 
+                    class="flex flex-col text-primary items-center hover:cursor-pointer"
+                    hx-get="/connexion.html"
+                    hx-push-url="/connexion.html"
+                    href="./connexion.html"
+                    hx-swap="innerHTML transition:true"
+                    hx-target="#root"
+                    hx-on::after-request="closeModal()"
+                    >Connexion</a>
+            </li>
+        </ul>
+    </section>
+</aside>
+<script defer src="./script/nav.js"></script>
+
+    <main id="router-outlet" class="absolute top-[8%] w-full h-[92%] bg-grey ">
+        <section class="flex flex-col lg:flex-row p-5 lg:h-full gap-5 min-h-full w-full bg-grey">
+    <div class="flex flex-col w-full lg:w-1/3 rounded-lg gap-5 text-white bg-primary p-5">
+        <h1 class="text-white font-poppins text-5xl text-center">Mon profil</h1>
+        <div class="gap-2 bg-grey border-2 border-lightPrimary max-h-1/2 overflow-auto text-primary p-5">
+    Remplir votre profil permettra <span class="font-bold">d'afficher des informations de contact quand vous posterez des offres d'emploi.</span> Diginamic s'engage à <span class="font-bold"> ne pas utiliser ces informations pour le démarchage.</span>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="email">Email professionnel</label>
+    <input 
+    id="email"
+    type="text"
+    value=""
+    placeholder="ex : john.doe@gmail.com"
+    aria-placeholder="ex : john.doe@gmail.com"
+    class="rounded-md w-full p-2 text-black"
+>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="telephone">Numéro à contacter pour le recrutement</label>
+    <input 
+    id="telephone"
+    type="tel"
+    value=""
+    placeholder="ex : 0777777777"
+    aria-placeholder="ex : 0777777777"
+    class="rounded-md w-full p-2 text-black"
+>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="site">Site de la société</label>
+    <input 
+    id="site"
+    type="text"
+    value=""
+    placeholder="ex : www.capgemini.com"
+    aria-placeholder="ex : www.capgemini.com"
+    class="rounded-md w-full p-2 text-black"
+>
+</div>
+
+    </div>
+    <div class="flex flex-col w-full lg:w-2/3 rounded-lg p-5 text-center text-primary bg-white h-full">
+       <h2 class="text-4xl font-poppins pb-2">Mes offres d'emploi</h2> 
+       <div class="flex gap-2 w-full h-full">
+           <div class="hidden sm:flex bg-grey font-poppins gap-2 flex-col px-5 rounded-md h-full">
+               <div class="flex flex-col">
+    <div class="text-lg">Filtres</div>
+    <div class="h-0.5 w-full bg-black"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="poste">Intitulé du poste</label>
+    <input 
+    id="poste"
+    type="text"
+    value=""
+    placeholder="ex : développeur java"
+    aria-placeholder="ex : développeur java"
+    class="rounded-md text-sm w-full p-1 text-black"
+>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="localisation">Localisation de l'offre </label>
+    <input minlength="2" autocomplete="off" class="rounded-md w-full p-1 text-sm text-black" list="localisations" name="module" id="localisation">
+    <datalist style="overflow:hidden" id="localisations">
+        <option value="Nantes"></option>
+        <option value="Lyon"></option>
+        <option value="Montpellier"></option>
+        <option value="Lille"></option>
+    </datalist>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="dateapres">Date après :</label>
+    <input 
+    id="dateapres"
+    type="date"
+    value=""
+    class="rounded-md text-sm w-full p-1 text-black"
+>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="dateavant">Date avant :</label>
+    <input 
+    id="dateavant"
+    type="date"
+    value=""
+    class="rounded-md text-sm w-full p-1 text-black"
+>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="modalites">Modalités du poste</label>
+    <select id="modalites" class="rounded-md w-full p-1 text-sm text-black">
+        <option value="Tout">Tout</option>
+        <option value="Full remote">Full remote</option>
+        <option value="Hybride">Hybride</option>
+        <option value="Sur site">Sur site</option>
+    </select>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="competence">Compétences recherchées</label>
+    <div class="flex w-full gap-2">
+        <input minlength="2" autocomplete="off" class="rounded-md w-full p-1 text-sm text-black" list="competences" name="module" id="competence">
+    </div>
+    <datalist style="overflow:hidden" id="competences">
+        
+            <option data-value="1" value="java"></option>
+        
+            <option data-value="2" value="dotnet"></option>
+        
+            <option data-value="3" value="javascript"></option>
+        
+            <option data-value="4" value="trello"></option>
+        
+            <option data-value="5" value="cobol"></option>
+        
+    </datalist>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="status">Status de l'offre</label>
+    <select id="status" class="rounded-md w-full p-1 text-sm text-black">
+        <option value="Tout">Brouillon</option>
+        <option value="Full remote">Publiée</option>
+        <option value="Hybride">Désactivée</option>
+    </select>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+
+           </div>
+           <div class="flex overflow-y-auto flex-wrap justify-center items-start p-2 gap-2 w-full sm:w-2/3 rounded-md bg-white sm:bg-lightGrey h-full">
+    <div class="flex flex-wrap w-full gap-2">
+        
+            <div class="flex flex-col p-1 items-start w-full xl:w-[49%] h-[200px] shadow-md sm:shadow-none bg-white rounded-lg border-2 border-primary">
+                <h3 class="text-primary text-center w-full font-poppins text-lg">Développeur java backend</h3>
+                <div class="text-primary text-center w-full">Nantes (Sur site)</div>
+                <div class="text-primary px-2.5 font-bold">Compétences : </div>
+                <div class="flex p-2.5 flex-wrap gap-2">
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">java</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">spring</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">jenkins</div>
+                    
+                </div>
+            </div>
+        
+            <div class="flex flex-col p-1 items-start w-full xl:w-[49%] h-[200px] shadow-md sm:shadow-none bg-white rounded-lg border-2 border-primary">
+                <h3 class="text-primary text-center w-full font-poppins text-lg">Développeur java frontend</h3>
+                <div class="text-primary text-center w-full">Nantes (Sur site)</div>
+                <div class="text-primary px-2.5 font-bold">Compétences : </div>
+                <div class="flex p-2.5 flex-wrap gap-2">
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">java</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">thymeleaf</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">jsp</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">Bootstrap</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">javascript</div>
+                    
+                </div>
+            </div>
+        
+            <div class="flex flex-col p-1 items-start w-full xl:w-[49%] h-[200px] shadow-md sm:shadow-none bg-white rounded-lg border-2 border-primary">
+                <h3 class="text-primary text-center w-full font-poppins text-lg">Développeur HTML Fullstack</h3>
+                <div class="text-primary text-center w-full">Montpellier (Hybride)</div>
+                <div class="text-primary px-2.5 font-bold">Compétences : </div>
+                <div class="flex p-2.5 flex-wrap gap-2">
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">html</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">htmllang</div>
+                    
+                </div>
+            </div>
+        
+            <div class="flex flex-col p-1 items-start w-full xl:w-[49%] h-[200px] shadow-md sm:shadow-none bg-white rounded-lg border-2 border-primary">
+                <h3 class="text-primary text-center w-full font-poppins text-lg">Développeur Mainframe</h3>
+                <div class="text-primary text-center w-full">Lyon (Full Remote)</div>
+                <div class="text-primary px-2.5 font-bold">Compétences : </div>
+                <div class="flex p-2.5 flex-wrap gap-2">
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">cobol</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">mainframe</div>
+                    
+                        <div class="rounded-full text-white px-2 bg-lightPrimary">tailwind</div>
+                    
+                </div>
+            </div>
+        
+    </div>
+</div>
+
+       </div>
+    </div>
+    <div class="fixed sm:hidden bottom-0 right-0 p-2" style="z-index: 80;">
+        <div data-filtre class="block bg-lightPrimary rounded-full p-4">
+            <svg fill="#ffffff" xmlns="http://www.w3.org/2000/svg" height="33" viewBox="0 -960 960 960" width="33"><path d="M440-160q-17 0-28.5-11.5T400-200v-240L168-736q-15-20-4.5-42t36.5-22h560q26 0 36.5 22t-4.5 42L560-440v240q0 17-11.5 28.5T520-160h-80Zm40-308 198-252H282l198 252Zm0 0Z"/></svg>
+        </div>
+    </div>
+    <div hidden id="modal-filtre" class="fixed z-50 top-0 bg-grey text-primary h-screen p-3 rounded-md w-full left-[-800px] sm:w-[800px]">
+        <div class="flex bg-grey font-poppins gap-2 flex-col px-5 rounded-md h-full">
+            <div class="flex flex-col">
+    <div class="text-lg">Filtres</div>
+    <div class="h-0.5 w-full bg-black"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="poste">Intitulé du poste</label>
+    <input 
+    id="poste"
+    type="text"
+    value=""
+    placeholder="ex : développeur java"
+    aria-placeholder="ex : développeur java"
+    class="rounded-md text-sm w-full p-1 text-black"
+>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="localisation">Localisation de l'offre </label>
+    <input minlength="2" autocomplete="off" class="rounded-md w-full p-1 text-sm text-black" list="localisations" name="module" id="localisation">
+    <datalist style="overflow:hidden" id="localisations">
+        <option value="Nantes"></option>
+        <option value="Lyon"></option>
+        <option value="Montpellier"></option>
+        <option value="Lille"></option>
+    </datalist>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="dateapres">Date après :</label>
+    <input 
+    id="dateapres"
+    type="date"
+    value=""
+    class="rounded-md text-sm w-full p-1 text-black"
+>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="dateavant">Date avant :</label>
+    <input 
+    id="dateavant"
+    type="date"
+    value=""
+    class="rounded-md text-sm w-full p-1 text-black"
+>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="modalites">Modalités du poste</label>
+    <select id="modalites" class="rounded-md w-full p-1 text-sm text-black">
+        <option value="Tout">Tout</option>
+        <option value="Full remote">Full remote</option>
+        <option value="Hybride">Hybride</option>
+        <option value="Sur site">Sur site</option>
+    </select>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="competence">Compétences recherchées</label>
+    <div class="flex w-full gap-2">
+        <input minlength="2" autocomplete="off" class="rounded-md w-full p-1 text-sm text-black" list="competences" name="module" id="competence">
+    </div>
+    <datalist style="overflow:hidden" id="competences">
+        
+            <option data-value="1" value="java"></option>
+        
+            <option data-value="2" value="dotnet"></option>
+        
+            <option data-value="3" value="javascript"></option>
+        
+            <option data-value="4" value="trello"></option>
+        
+            <option data-value="5" value="cobol"></option>
+        
+    </datalist>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+<div class="flex flex-col gap-1">
+    <label for="status">Status de l'offre</label>
+    <select id="status" class="rounded-md w-full p-1 text-sm text-black">
+        <option value="Tout">Brouillon</option>
+        <option value="Full remote">Publiée</option>
+        <option value="Hybride">Désactivée</option>
+    </select>
+    <div class="h-0.5 mt-1 w-full bg-dark"></div>
+</div>
+
+        </div>
+    </div>
+</section>
+<script>var filtre = document.querySelector('[data-filtre]');
+var modalFiltre = document.querySelector('#modal-filtre');
+
+filtre.addEventListener("click", toggleModal);
+filtre.addEventListener("keydown", (e) => {
+    if(e.key === "Enter") toggleModal();
+})
+
+function toggleModal(){
+    console.log("caca")    
+    if(! modalFiltre.classList.contains("modal-left")) {
+        modalFiltre.classList.add("modal-left");
+        modalFiltre.removeAttribute("hidden");
+        modalBg.removeAttribute("hidden");
+        return;
+    }
+    modalFiltre.classList.remove("modal-left");
+    modalBg.setAttribute("hidden", "true");
+    modalFiltre.setAttribute("hidden", "true");
+}
+</script>
+
+    </main>
+</body>
+</html>

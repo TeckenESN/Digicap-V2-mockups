@@ -65,6 +65,36 @@
     }
 }
 
+@keyframes showModal {
+    from{
+
+    }
+    to {
+        right: 0;
+    }
+}
+
+@keyframes showModalLeft {
+    from{
+
+    }
+    to {
+        left: 0;
+    }
+}
+
+.modal-left{
+    animation-name: showModalLeft;
+    animation-duration: 0.30s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
+.modal{
+    animation-name: showModal;
+    animation-duration: 0.30s;
+    animation-fill-mode: forwards;
+    animation-timing-function: ease-in-out;
+}
 
 .wrapper {
     display: grid;
