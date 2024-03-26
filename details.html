@@ -201,14 +201,15 @@
         </div>
         <div class="grow"></div>
         <div class="flex flex-col self-end p-5 justify-self-end gap-2 h-fit items-end w-full">
-            <button 
+            <a 
                 class="flex hover:bg-lightAccent text-sm bg-accent w-full text-primary rounded-md p-2 px-5 justify-center items-center font-bold"
                 hx-trigger="keyup[keyCode==13], click"
                 hx-get="/ase-details/recruteur/partial?id=2"
                 hx-push-url="/ase-details/recruteur?id=2"
                 hx-target="#router-outlet"
+                href="./details.html"
                 >Prendre contact avec Arnold
-            </button>
+            </a>
         </div>
     </div>
     <div class="flex flex-col lg:flex-row lg:w-2/3 flex-nowrap overflow-x-hidden z-20">
